@@ -1,7 +1,7 @@
 import React from "react";
 const ImgInAuth = require("../assets/images/ImgInAuth.png");
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../navigations/AppNavigation.tsx";
+import { RootStackParamList } from "../navigations/HomeStack.tsx";
 import PrimaryButton from "../components/custormElements/PrimaryButton.tsx";
 import styled from "styled-components/native";
 import CustomText from "../components/custormElements/Text.tsx";

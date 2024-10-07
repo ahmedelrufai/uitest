@@ -7,7 +7,9 @@ export const lightTheme = {
   lightBlue:'#d0e3ff',
   lightGreen:'#e8f9ee',
   lineColor:"#5a5a5a",
-  green:"#289542"
+  green:"#289542",
+  subsBlue:"#534d90",
+  subsOrange:"#b06805"
 };
 
 export const darkTheme = {
@@ -19,7 +21,9 @@ export const darkTheme = {
   lightBlue:'#d0e3ff',
   lightGreen:'#e8f9ee',
   lineColor:"#959595",
-  green:"#289542"
+  green:"#289542",
+  subsBlue:"#534d90",
+  subsOrange:"#b06805"
 
 
 

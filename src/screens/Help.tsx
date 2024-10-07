@@ -19,67 +19,14 @@ const ServicesIcon = require("../assets/images/ServicesIcon.png");
 const BusinessIcon = require("../assets/images/BusinessIcon.png");
 const HandBuggerIcon = require("../assets/images/HandBuggerIcon.png");
 
-interface DashboardProps extends NativeStackScreenProps<RootStackParamList, "Dashboard"> {}
+interface HelpProps extends NativeStackScreenProps<RootStackParamList, "Help"> {}
 
-const Dashboard: React.FunctionComponent<DashboardProps> = ({ navigation }) => {
+const Help: React.FunctionComponent<HelpProps> = ({ navigation }) => {
 	const { activeTheme } = useStore();
 
 	return (
 		<Container>
-			<ItemsWrapper>
-				<Header>
-					<CustomText size={40} weight={500}>
-						Overview
-					</CustomText>
-					<ActionsWrapper>
-						<CustomButton onPress={()=>null}>
-							<Icon resizeMode={"contain"} source={activeTheme === "dark" ? SearchIconOnDark : SearchIconOnLight} />
-						</CustomButton>
-						<CustomButton onPress={()=>null}>
-							<Icon resizeMode={"contain"} source={activeTheme === "dark" ? AddIconOnDark : AddIconOnLight} />
-						</CustomButton>
 
-						<CustomButton onPress={() => {
-							// @ts-ignore
-							return navigation?.openDrawer();
-						}}>
-							<Icon resizeMode={"contain"} source={HandBuggerIcon} />
-						</CustomButton>
-					</ActionsWrapper>
-				</Header>
-
-				<TopWrapper>
-					<ScrollView horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} contentContainerStyle={{ gap: normalizeh(40), flexDirection: "row", paddingRight: normalizew(160) }}>
-						<TopItem colorType={"lightBlue"}>
-							<TopItemInnerWrapper>
-								<CustomText color={lightTheme.text} size={38}>
-									Services
-								</CustomText>
-								<CustomText color={lightTheme.text} weight={600} size={64}>
-									123
-								</CustomText>
-							</TopItemInnerWrapper>
-							<ItemImage resizeMode={"contain"} source={ServicesIcon} />
-						</TopItem>
-						<TopItem colorType={"lightGreen"}>
-							<TopItemInnerWrapper>
-								<CustomText color={lightTheme.text} size={38}>
-									Business
-								</CustomText>
-								<CustomText color={lightTheme.text} weight={600} size={64}>
-									3
-								</CustomText>
-							</TopItemInnerWrapper>
-							<ItemImage resizeMode={"contain"} source={BusinessIcon} />
-						</TopItem>
-					</ScrollView>
-				</TopWrapper>
-				<ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} contentContainerStyle={{ gap: normalizeh(40), paddingBottom: normalizeh(300) }}>
-					<Activity />
-					<Services />
-					<Notifications />
-				</ScrollView>
-			</ItemsWrapper>
 		</Container>
 	);
 };
@@ -147,4 +94,4 @@ const ItemsWrapper = styled.View`
   gap: ${normalizeh(40)}px;
 `;
 
-export default Dashboard;
+export default Help;

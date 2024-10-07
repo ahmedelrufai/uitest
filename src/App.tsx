@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Platform, StatusBar, useColorScheme, Button } from "react-native";
+import {Platform, StatusBar, useColorScheme, Button, Animated} from "react-native";
 import { ThemeProvider } from 'styled-components/native';
 import Toast from "react-native-toast-message";
 import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from "@apollo/client";
@@ -7,38 +7,16 @@ import { onError } from "@apollo/client/link/error";
 import { setContext } from "@apollo/client/link/context";
 import BootSplash from "react-native-bootsplash";
 import { API_URL } from "./utils/config";
-// import { CacheManager } from "@georstat/react-native-image-cache";
-import { Dirs } from "react-native-file-access";
-
-import { NavigationContainer } from "@react-navigation/native";
 import { darkTheme, lightTheme } from "./utils/theme.ts"
-import styled from 'styled-components/native';
 import useStore from "./store/store.ts";
-import AppNavigator from "./navigations/AppNavigation.tsx";
-// CacheManager.config = {
-//   baseDir: `${Dirs.CacheDir}/images_cache/`,
-//   blurRadius: 15,
-//   cacheLimit: 0,
-//   maxRetries: 3,
-//   retryDelay: 3000,
-//   sourceAnimationDuration: 1000,
-//   thumbnailAnimationDuration: 1000,
-//   getCustomCacheKey: (source: string) => {
-//     let newCacheKey = source;
-//     if (source.includes('?')) {
-//       newCacheKey = source.substring(0, source.lastIndexOf('?'));
-//     }
-//     return newCacheKey;
-//   },
-// };
+import {createDrawerNavigator} from "@react-navigation/drawer";
 
-// const errorMessage = "Unable to process request, please try again later";
+import DrawerComp from "./navigations/DrawerComp.tsx";
 
 function getOperationNameFromOperation(operation: any): string | null {
   const operationName = operation.query.definitions[0].operation;
   return operationName as string;
 }
-
 const httpLink = new HttpLink({
   uri: `${API_URL}/graphql`,
 });
@@ -84,6 +62,7 @@ const client = new ApolloClient({
 });
 
 
+const Drawer = createDrawerNavigator();
 
 function App(): React.JSX.Element {
   const isIOS = Platform.OS === "ios";
@@ -104,13 +83,7 @@ function App(): React.JSX.Element {
       <ApolloProvider client={client}>
         <StatusBar barStyle="light-content" hidden={false} translucent={true} />
         <ThemeProvider theme={theme}>
-          <NavigationContainer>
-            {/*<Container>*/}
-            {/*  <ThemedText>Hello, World!</ThemedText>*/}
-            {/*  <Button title="Toggle Theme" onPress={toggleTheme} />*/}
-            {/*</Container>*/}
-            <AppNavigator />
-          </NavigationContainer>
+          <DrawerComp />
         </ThemeProvider>
       </ApolloProvider>
       <Toast />

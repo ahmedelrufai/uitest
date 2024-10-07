@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import {normalizeh, normalizew} from "../../utils/helpers.ts";
 import CustomText from "../custormElements/Text.tsx";
+import CustomButton from "../custormElements/CustomButton.tsx";
 
 const Notifications = () => {
 	const notifications = [
@@ -13,16 +14,20 @@ const Notifications = () => {
 	return <Container>
 		{
 			notifications?.map((item,index)=>{
-				return <Notification key={index}>
+				return <CustomButton onPress={()=>null} key={index}>
+					<Notification>
+
 					<Dot />
 					<CustomText>{item}</CustomText>
-				</Notification>
+					</Notification>
+
+				</CustomButton>
 			})
 		}
 
 	</Container>
 }
-const Notification = styled.TouchableOpacity`
+const Notification = styled.View`
 flex-direction: row;
 	align-items: center;
   gap:  ${normalizeh(16)}px;;

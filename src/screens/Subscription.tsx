@@ -7,7 +7,7 @@ import useStore from "../store/store.ts";
 import { normalizeh, normalizew } from "../utils/helpers.ts";
 import { SafeAreaView, ScrollView } from "react-native";
 import CustomText from "../components/custormElements/Text.tsx";
-import {lightTheme} from "../utils/theme.ts";
+import {darkTheme, lightTheme} from "../utils/theme.ts";
 import CustomButton from "../components/custormElements/CustomButton.tsx";
 const Bell = require("../assets/images/Bell.png");
 const SubsImage = require("../assets/images/SubsImage.png");
@@ -20,7 +20,8 @@ const Subscription: React.FunctionComponent<SubscriptionProps> = ({ navigation }
 		<Container>
     <HeaderWrapper>
 	    <CustomText size={48} weight={500}>Choose your plan</CustomText>
-	    <Icon source={Bell} />
+	    <Icon style={{tintColor:activeTheme==="dark"?lightTheme.background:darkTheme.background}} source={Bell} />
+
     </HeaderWrapper>
 			{/*<Image source={SubsImage} />*/}
 			<Wrapper>
@@ -72,7 +73,7 @@ const Subscription: React.FunctionComponent<SubscriptionProps> = ({ navigation }
 					}
 					<ButtonWrapper>
 
-						<CustomButton onPress={()=>null} >
+						<CustomButton onPress={()=>navigation.navigate("Plan")} >
 							<InnerButton>
 
 								<CustomText color={lightTheme.text}>

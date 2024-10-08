@@ -14,6 +14,7 @@ export type RootStackParamList = {
   CurrentService:undefined;
   Help:undefined;
   Subscription:undefined;
+  Plan:undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

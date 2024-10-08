@@ -76,7 +76,7 @@ const Plan: React.FunctionComponent<PlanProps> = ({ navigation }) => {
 
 				)}
 				<ButtonWrapper>
-					<CustomButton onPress={() => null}>
+					<CustomButton onPress={() => navigation.navigate("Overview")}>
 						<InnerButton>
 							<CustomText >Subscribe Now</CustomText>
 						</InnerButton>

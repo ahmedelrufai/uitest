@@ -21,7 +21,6 @@ const Subscription: React.FunctionComponent<SubscriptionProps> = ({ navigation }
     <HeaderWrapper>
 	    <CustomText size={48} weight={500}>Choose your plan</CustomText>
 	    <Icon style={{tintColor:activeTheme==="dark"?lightTheme.background:darkTheme.background}} source={Bell} />
-
     </HeaderWrapper>
 			{/*<Image source={SubsImage} />*/}
 			<Wrapper>

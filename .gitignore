@@ -4,6 +4,7 @@
 
 # Xcode
 #
+arc
 build/
 *.pbxuser
 !default.pbxuser
